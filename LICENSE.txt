@@ -1,0 +1,6 @@
+Dataset: Koreatech-CGH
+© 2025 SPIN Lab, Korea University of Technology and Education (KOREATECH) and Digital Holography Research Group, Electronics and Telecommunications Research Institute (ETRI)
+This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.  
+
+To view a copy of this license, visit:
+https://creativecommons.org/licenses/by-nc/4.0/
