@@ -9,6 +9,7 @@ RGBD–complex hologram pairs for ML-based computer-generated holography (ML-CGH
 - Resolutions: 256², 512², 1024², 2048²  
 - License: **CC BY-NC 4.0** (non-commercial, attribution required)  
 - Hugging Face collection: https://huggingface.co/collections/SPIN-Lab/koreatech-cgh
+- Arxiv: https://doi.org/10.48550/arXiv.2512.21040
 ---
 
 ## Samples
@@ -92,7 +93,17 @@ See `LICENSE.txt` and the [official CC BY-NC 4.0 terms](https://creativecommons.
 
 ## Citation
 
-BibTeX coming soon.
+```
+@misc{lee2025largedepthrangelayerbasedhologramdataset,
+  title={A Large-Depth-Range Layer-Based Hologram Dataset for Machine Learning-Based 3D Computer-Generated Holography}, 
+  author={Jaehong Lee and You Chan No and YoungWoo Kim and Duksu Kim},
+  year={2025},
+  eprint={2512.21040},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2512.21040}, 
+} 
+```
 
 ---
 
