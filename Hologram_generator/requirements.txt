@@ -1,0 +1,23 @@
+# --- core ---
+numpy>=1.26
+scipy>=1.14
+scikit-image>=0.21
+imageio>=2.34
+openexr-numpy>=0.0.6
+OpenEXR>=3.2
+imath>=0.0.2
+tqdm>=4.66
+
+# --- GPU (install manually to match your CUDA toolkit version) ---
+# CuPy ships as separate wheels per CUDA version, so it cannot be pinned
+# generically. Install the build that matches the CUDA toolkit on your
+# system before running these scripts:
+#
+#   CUDA 12.x  ->  pip install cupy-cuda12x
+#   CUDA 11.x  ->  pip install cupy-cuda11x
+#
+# An NVIDIA GPU with a matching CUDA driver is required. Verify with:
+#   python -c "import cupy; cupy.show_config()"
+#
+# Tested with cupy-cuda12x==13.2.0 on CUDA 12.x.
+# cupy-cuda12x==13.2.0

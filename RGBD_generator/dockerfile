@@ -1,0 +1,44 @@
+# Reproduction image for RUCGH (Ray-based Unified CGH).
+# Build with the OptiX SDK installer placed next to this Dockerfile, e.g.:
+#   docker build -t rucgh-release .
+# The host directory must contain a file named NVIDIA-OptiX-SDK-*.sh
+# (download from https://developer.nvidia.com/designworks/optix/downloads).
+
+FROM nvidia/cuda:12.8.0-devel-ubuntu24.04
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Build toolchain
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gdb \
+    rsync \
+    make \
+    zip \
+    ninja-build \
+    cmake \
+    && rm -rf /var/lib/apt/lists/*
+
+# OptiX SDK
+COPY NVIDIA-OptiX-SDK-*.sh /opt/optix-installer.sh
+RUN chmod +x /opt/optix-installer.sh && \
+    yes | /opt/optix-installer.sh --silent --prefix=/opt/optix
+ENV OPTIX_INSTALL_DIR=/opt/optix
+ENV PATH="${OPTIX_INSTALL_DIR}/bin:${PATH}"
+ENV LD_LIBRARY_PATH="${OPTIX_INSTALL_DIR}/lib64:${LD_LIBRARY_PATH}"
+RUN nvcc --version && ls $OPTIX_INSTALL_DIR
+
+# Third-party libraries: OpenCV
+RUN apt-get update && apt-get install -y \
+    libopencv-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# RUCGH sources
+COPY ./RUCGH       /workspace/RUCGH
+COPY ./argparse    /workspace/argparse
+COPY ./CMakeLists.txt /workspace/CMakeLists.txt
+WORKDIR /workspace
+
+RUN cmake .
+RUN make -j
+
+ENTRYPOINT ["/workspace/RUCGH/RUCGH_exe"]

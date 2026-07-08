@@ -1,0 +1,12 @@
+RUCGH RGB+D Generator
+
+This project includes code modified from Ingo Wald's OptiX 7 course:
+
+    https://github.com/ingowald/optix7course
+
+The upstream OptiX course code and the vendored gdt helper library are
+copyright Ingo Wald and are licensed under the Apache License, Version 2.0, as
+noted in the original source headers.
+
+Substantial project-specific changes were made for RUCGH RGB+D scene sampling,
+mesh loading, and RGB/depth export.
